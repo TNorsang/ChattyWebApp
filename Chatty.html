@@ -22,12 +22,12 @@
   <body>
     <div class="container-sm">
       <span class="badge text-bg-primary">Chatty WebApp</span>
-      <form>
+      <form name="chats" method="post">
         <div class="form-floating mb-3">
           <input
             type="text"
             class="form-control"
-            id="floatingInput"
+            id="name"
             placeholder="Your Name"
           />
           <label for="floatingInput">Name</label>
@@ -36,7 +36,7 @@
           <input
             type="password"
             class="form-control"
-            id="floatingPassword"
+            id="password"
             placeholder="Password"
           />
           <label for="floatingPassword">Password</label>
@@ -45,24 +45,47 @@
           <textarea
             class="form-control"
             placeholder="Leave a comment here"
-            id="floatingTextarea2"
+            id="message"
             style="height: 100px"
           ></textarea>
-          <label for="floatingTextarea2">Comments</label>
+          <label for="floatingTextarea2">Message</label>
         </div>
-        <button type="submit" class="btn btn-outline-primary">Primary</button>
+        <button type="submit" id="send" class="btn btn-outline-primary">Send Message</button>
       </form>
 
       <div class="card text-bg-light mb-3" style="max-width: 18rem">
         <div class="card-header">Chat</div>
         <div class="card-body">
           <h5 class="card-title"></h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          <p class="card-text" id="loadChat">
+            Chat Area <Area></Area>
           </p>
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#send').click(function(){
+                var name = $('#name').val();
+                var password = $('#password').val();
+                var message = $('#message').val();
+                if(name!='' && password!=''){
+                    // alert(name);
+                    // alert(password);
+                    // alert(message);
+                    $.ajax({
+                        url:"insert.php",
+                        method:"POST",
+                        data:{names:name, messages: message},
+                        dataType:"text",
+                        success:function(data){
+                            
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+
   </body>
 </html>
