@@ -1,0 +1,27 @@
+.badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    height: 10vh;
+}
+
+.form-control {
+    position: relative;
+    top: 1vh;
+    padding: 2%;
+
+    height: 37vh;
+}
+
+#send {
+    position: relative;
+    left: 53vh;
+    top: -3vh;
+}
+
+
+#bottom {
+    position: relative;
+    top: 5vh;
+}
