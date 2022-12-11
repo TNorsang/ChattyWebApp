@@ -1,7 +1,20 @@
+#main {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(206, 255, 207, 1) 0%, rgba(164, 212, 255, 1) 100%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 1) 100%);
+    height: 100vh;
+}
+
+.container-sm {
+    position: relative;
+    top: 11%;
+}
+
 .badge {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: 2vh;
     font-size: 30px;
     height: 10vh;
 }
@@ -17,8 +30,9 @@
 #send {
     position: relative;
     left: 53vh;
-    top: -3vh;
+    top: -2vh;
 }
+
 
 
 #bottom {

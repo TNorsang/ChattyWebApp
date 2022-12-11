@@ -17,31 +17,34 @@
 </head>
 
 <body>
-  <div class="container-sm">
-    <span class="badge text-bg-primary">Chatty WebApp</span>
-    <form name="chats" method="post" class="form-control">
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="name" placeholder="Your Name" />
-        <label for="floatingInput">Name</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="password" placeholder="Password" />
-        <label for="floatingPassword">Password</label>
-      </div>
-      <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="message" style="height: 100px"></textarea>
-        <label for="floatingTextarea2">Message</label>
-      </div>
+  <div id="main">
+    <div class="container-sm">
+      <span class="badge text-bg-primary">Chatty WebApp</span>
+      <form name="chats" method="post" class="form-control">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="name" placeholder="Your Name" />
+          <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="password" placeholder="Password" />
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" id="message"
+            style="height: 100px"></textarea>
+          <label for="floatingTextarea2">Message</label>
+        </div>
 
-    </form>
-    <div id="bottom">
-      <button type="submit" id="send" class="btn btn-outline-primary"> Send Message </button>
-      <div class="card text-bg-light mb-3" style="max-width: 100%">
-        <div class="card-header">Chat</div>
-        <div class="card-body">
-          <h5 class="card-title"></h5>
-          <div class="card-text" id="loadChat">
+      </form>
+      <div id="bottom">
+        <button type="submit" id="send" class="btn btn-outline-primary"> Send Message </button>
+        <div class="card text-bg-light mb-3" style="max-width: 100%">
+          <div class="card-header">Chat</div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <div class="card-text" id="loadChat">
 
+            </div>
           </div>
         </div>
       </div>
@@ -55,13 +58,14 @@
         var name = $('#name').val();
         var password = $('#password').val();
         var message = $('#message').val();
-        if (name != '') {
+        if (name != '' && password != '') {
           // alert(name);
           // alert(password);
           // alert(message);
           var data = new FormData();
           data.append('users', name);
           data.append('messages', message);
+          data.append('passwords', password);
 
           // this ajax call is working!          
           var ajax = new XMLHttpRequest();
@@ -74,7 +78,7 @@
 
           ajax.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-              // alert(this.responseText);
+              alert(this.responseText);
             }
           }
         }
@@ -84,8 +88,6 @@
       }, 1000);
 
     });
-
-
 
 
     // $(document).ready(function () {
